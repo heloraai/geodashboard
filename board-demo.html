@@ -1043,7 +1043,7 @@ function renderAvgRank(){
     yAxis:{type:'value',min:1,axisLabel:{color:p.axis,fontSize:11},splitLine:{lineStyle:{color:p.split}}},
     series:bs.map(function(b,bi){var data=DAILY.dates.map(function(_,i){return +Math.max(1.2,b.ar+0.4*Math.sin(i*0.45+bi*1.7)+0.16*Math.sin(i*0.21+bi*0.9)).toFixed(2);}).slice(from);
       var col=b.own?'#E5A338':brandColor(b.n);
-      return {name:b.n,type:'line',data:data,smooth:true,symbol:'none',itemStyle:{color:col},lineStyle:{width:b.own?3:1.7,color:col,type:b.own?'solid':'dashed',cap:'round',join:'round'}};})});
+      return {name:b.n,type:'line',data:data,smooth:true,symbol:dates.length===1?'circle':'none',symbolSize:b.own?8:7,itemStyle:{color:col},lineStyle:{width:b.own?3:1.7,color:col,type:b.own?'solid':'dashed',cap:'round',join:'round'}};})});
   var rows=STATIC.rankTable.map(function(r){return {n:r.n,ar:r.ar,m:r.m,own:r.own};}).sort(function(a,b){return a.ar-b.ar;});
   var avgOi=rows.map(function(r){return r.own;}).indexOf(true);
   var avgRankEl=document.getElementById('avgRank'); if(avgRankEl&&avgOi>=0) avgRankEl.textContent='#'+(avgOi+1);
@@ -1063,7 +1063,7 @@ function renderVisScore(){
       if(b.own){ data=w.series.vis.slice(); }
       else { data=DAILY.dates.map(function(_,i){var tt=FULL>1?i/(FULL-1):1; var start=b.v*(0.5+0.08*bi); return +Math.max(2,(start+(b.v-start)*tt+1.3*Math.sin(i*0.42+bi*1.3)+0.5*Math.sin(i*0.19+bi))).toFixed(1);}).slice(from); }
       var col=b.own?'#E5A338':brandColor(b.n);
-      return {name:b.n,type:'line',data:data,smooth:true,symbol:'none',itemStyle:{color:col},lineStyle:{width:b.own?3:1.7,color:col,type:b.own?'solid':'dashed',cap:'round',join:'round'}};})});
+      return {name:b.n,type:'line',data:data,smooth:true,symbol:L===1?'circle':'none',symbolSize:b.own?8:7,itemStyle:{color:col},lineStyle:{width:b.own?3:1.7,color:col,type:b.own?'solid':'dashed',cap:'round',join:'round'}};})});
   document.getElementById('vsRank').innerHTML=rankListHTML(STATIC.rankTable, function(r){return r.v+'%';}, function(r){return r.v;}, false);
 }
 function syncRC(){ RC.r1=cssvar('--r1');RC.r2=cssvar('--r2');RC.r3=cssvar('--r3');RC.ro=cssvar('--ro');RC.rn=cssvar('--rn'); }
