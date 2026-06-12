@@ -1541,7 +1541,7 @@ function renderSOV(){
   if(charts.sov)charts.sov.dispose(); var ch=echarts.init(document.getElementById('sovChart')); charts.sov=ch;
   ch.setOption({animation:false,tooltip:{trigger:'item',backgroundColor:p.tipBg,borderColor:cssvar('--tip-bd'),textStyle:{color:'#F5F2EA',fontSize:12},valueFormatter:function(v){return v+'%';}},
     series:[{type:'pie',radius:['60%','90%'],center:['50%','50%'],itemStyle:{borderColor:cssvar('--surface'),borderWidth:2},labelLine:{show:false},
-      label:{show:false},emphasis:{scale:false,label:{show:false}},data:data,name:'SOV'}],
+      label:{show:false},emphasis:{disabled:true},data:data,name:'SOV'}],
     graphic:[{type:'text',left:'center',top:'45%',silent:true,style:{text:own.sov+'%',fill:cssvar('--text'),font:'800 26px Montserrat, sans-serif',textAlign:'center'}},
       {type:'text',left:'center',top:'55%',silent:true,style:{text:t('your_sov'),fill:cssvar('--text-3'),font:'12px Inter, sans-serif',textAlign:'center'}}]});
   document.getElementById('sovList').innerHTML=rankListHTML(sorted, function(r){return r.sov+'%';}, function(r){return r.sov;}, false);
