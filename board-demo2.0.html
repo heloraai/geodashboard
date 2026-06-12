@@ -661,7 +661,7 @@ button{font:inherit;cursor:pointer}
 .side-div{height:1px;background:var(--border);margin:2px 0;flex:none}
 .side-sec{display:flex;flex-direction:column;gap:9px;min-width:0}
 .side-sec__h{
-  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--text-3);font-weight:700;margin:0 0 0 1px;
 }
 .side-sec__v{font-size:13px;color:var(--text);font-weight:600;line-height:1.4}
@@ -745,7 +745,7 @@ button{font:inherit;cursor:pointer}
 .floatnav #sideNav{display:flex;flex-direction:column;align-items:center;gap:7px;width:100%;transition:gap .22s ease}   /* gap spreads the collapsed dashes */
 .floatnav__inner:hover #sideNav{gap:0}   /* …but expanded menu keeps its original (navitem-height) spacing */
 .floatnav__inner::before{                    /* flyout card — Apple-style frosted glass, dash rail as the centre axis */
-  content:"";position:absolute;top:-20px;bottom:-18px;left:50%;margin-left:-94px;width:188px;   /* centred WITHOUT transform so backdrop-filter still samples the page */
+  content:"";position:absolute;top:-20px;bottom:-18px;left:50%;margin-left:-105px;width:210px;   /* centred WITHOUT transform so backdrop-filter still samples the page */
   background:rgba(255,255,255,.14);
   -webkit-backdrop-filter:blur(7px) saturate(140%);backdrop-filter:blur(7px) saturate(140%);
   border:none;border-radius:18px;
@@ -756,11 +756,12 @@ button{font:inherit;cursor:pointer}
 :root[data-theme="dark"] .floatnav__inner::before{background:rgba(34,38,48,.22);box-shadow:0 22px 50px -18px rgba(0,0,0,.5)}   /* no inset highlight in dark → no border look */
 .floatnav__inner:hover::before{opacity:1;pointer-events:auto}   /* once open, panel keeps itself open */
 .floatnav__h{
-  position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:168px;text-align:center;z-index:2;
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:190px;text-align:center;z-index:2;
   font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);font-weight:700;
   opacity:0;transition:opacity .2s ease;
 }
 .floatnav__inner:hover .floatnav__h{opacity:1}
+:root[data-lang="en"] .floatnav .navitem__t{font-size:11px}   /* English labels are longer → shrink so they don't clip */
 .floatnav .navitem{
   position:relative;z-index:2;display:flex;align-items:center;justify-content:center;
   width:22px;height:11px;padding:0;background:transparent;cursor:pointer;transition:height .22s ease;
@@ -776,7 +777,7 @@ button{font:inherit;cursor:pointer}
 .floatnav__inner:hover .navitem__bar{opacity:0}
 .floatnav .navitem__t{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.97);
-  width:168px;text-align:center;white-space:nowrap;
+  width:190px;text-align:center;white-space:nowrap;
   opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
 }
 .floatnav__inner:hover .navitem__t{opacity:1;transform:translate(-50%,-50%);pointer-events:auto}
@@ -1048,7 +1049,7 @@ var STATIC={
   rankTable:[ {n:'JustLend',v:43,m:1137,ar:2.57},{n:'TronLink',v:42,m:1120,ar:2.41},{n:'TronGrid',v:23,m:616,ar:3.67},{n:'TokenPocket',v:20,m:544,ar:4.18},{n:'Binance',v:19,m:513,ar:4.5},{n:'Tronscan',v:18,m:487,ar:4.94},{n:'JustSwap',v:17,m:442,ar:4.03},{n:'gasstation',v:17,m:452,ar:2.57,own:true},{n:'TronEnergy',v:14,m:384,ar:4.05},{n:'imToken',v:9,m:236,ar:4.78},{n:'OKX',v:8,m:222,ar:6.59},{n:'Feee.io',v:8,m:212,ar:3.96},{n:'TronBank',v:8,m:201,ar:3.15},{n:'EOPEN',v:5,m:135,ar:1.89},{n:'Feex',v:5,m:131,ar:3.7} ],
   ownRank:8, brandsTotal:736,
   platform:[ {k:'qwen web',l:'通义千问·Web',v:20,p:1.89},{k:'doubao',l:'豆包',v:19.7,p:1.62},{k:'chatgpt',l:'ChatGPT',v:8.3,p:3.39},{k:'google_ai_mode',l:'Google AI',v:2.7,p:2.26},{k:'perplexity web',l:'Perplexity',v:2.1,p:1.41},{k:'chatgpt web',l:'ChatGPT·Web',v:1.8,p:2.56},{k:'qwen',l:'通义千问',v:1.3,p:1.6},{k:'deepseek web',l:'DeepSeek·Web',v:0,p:null} ],
-  radarAxes:[ {k:'visibility',l:'可见度'},{k:'sov',l:'声量份额'},{k:'top1_rate',l:'前1率'},{k:'top3_rate',l:'前3率'},{k:'position',l:'排名得分'} ],
+  radarAxes:[ {k:'visibility',l:'可见度',le:'Visibility'},{k:'sov',l:'声量份额',le:'SOV'},{k:'top1_rate',l:'前1率',le:'Top-1'},{k:'top3_rate',l:'前3率',le:'Top-3'},{k:'position',l:'排名得分',le:'Rank score'} ],
   topics:[ {l:'USDT 低成本转账',q:'TRON 转账 USDT 手续费太高，有什么低成本替代方案？',m:407,v:{visibility:16.73,sov:36.83,top1_rate:54.93,top3_rate:96.83,position:94.15}},{l:'租能量 vs 质押',q:'不冻结 TRX 直接租能量，真的比质押更划算吗？',m:616,v:{visibility:26.1,sov:43.08,top1_rate:48.84,top3_rate:91.04,position:91.47}},{l:'高频·租 vs 质押',q:'高频交易下，租 TRON 能量和买 TRX 质押哪个省钱？',m:309,v:{visibility:12.81,sov:27.71,top1_rate:46.99,top3_rate:80.08,position:87.41}},{l:'企业批量归集降本',q:'企业批量归集 USDT，怎么把 TRON 链上成本降到最低？',m:157,v:{visibility:8.02,sov:19.8,top1_rate:53.72,top3_rate:95.87,position:93.88}} ],
   sentiment:{ pos:1,neu:1,neg:0,nm:55, pr:50, posTrend:[80,77,73,70,68,65,63],
     qSent:[
@@ -1082,6 +1083,24 @@ var STATIC={
     {d:'2026-06-06 11:30',g:'新加坡-简体中文',e:8,q:19,st:'done'},
     {d:'2026-06-05 17:38',g:'新加坡-简体中文',e:8,q:19,st:'done'}
   ], sessTotal:200
+};
+var COMP_EN={
+  gasstation:{rk:'Your brand',pos:'A TRON-ecosystem energy/bandwidth rental provider focused on security, transparency, low cost and developer API integration.',
+    s:['Built for enterprise withdrawals & multi-address collection, with quick / auto / API access','Allocates resources by business-line priority — ideal for high-frequency batch use','Only 0.5–2 TRX per USDT transfer — 70%+ cheaper than burning','No freezing or lock-up — keeps your TRX liquid'],
+    w:['~20% price fluctuation risk during network peaks','At sustained ultra-high frequency, cumulative cost may exceed staking TRX'],
+    pr:'0.6–0.9 TRX / 10k energy / day; ~3–6 TRX per USDT rental',pd:['TRON energy rental','Enterprise API','Telegram bot','Smart custody / auto top-up']},
+  TronLink:{pos:'A widely-used non-custodial TRON wallet focused on secure, convenient asset management and resource access.',
+    s:['Core of the official ecosystem, deeply wallet-integrated, near-zero latency','Flash rental with second-level arrival','Smart-contract authorization (not custody) — high security','Permanent freeze for energy — great for long-term, hands-off use'],
+    w:['Connecting to spoofed platforms still risks theft','Official domain is easily phished / impersonated'],
+    pr:'30%–50% cheaper than burning TRX; 30k energy for 1 hour is very low-cost',pd:['TronLink wallet','TronLink Pro','Built-in energy market','Resource delegation']},
+  JustLend:{pos:'TRON\'s official decentralized lending platform, focused on high security and ecosystem compatibility.',
+    s:['Core of the official ecosystem, fast confirmation','30%–50% cheaper than burning TRX','Contract-authorization model — principal is recoverable','Flexible durations (3h / 24h / 3d / 7d)'],
+    w:['Essentially a lending protocol — resource rental relies on derivative tools','Price gaps across platforms can reach 20%','Unlimited authorization carries contract / hack risk'],
+    pr:'~3–5 TRX per transfer; monthly plan 3–4 TRX per 100k energy / day',pd:['Energy rental','Resource delegation','API','GasFree']},
+  TokenPocket:{pos:'A mainstream multi-chain DeFi wallet — friendly UI, beginner-ready, with convenient resource management.',
+    s:['Built-in rental is officially audited — no malicious-contract authorization','Pay with TRX / USDT / USDD, one-tap rental','Smart rental built into the transfer page, second-level arrival','Rental instead of burning saves up to 75% in fees'],
+    w:['(No clear gaps found in public info)'],
+    pr:'Pay a small amount of TRX, or sponsored USDT; free quota during promotions',pd:['TP wallet','Built-in energy rental','Multi-chain wallet','Party Cloud']}
 };
 var BLAB={gasstation:'g','JustLend':'JL','JustLend DAO':'JD','TronLink':'TL','TronGrid':'TG','Tronscan':'Ts','TokenPocket':'TP','Binance':'Bn','JustSwap':'JS','TronEnergy':'TE','imToken':'iT','OKX':'OK','Feee.io':'Fe','TronBank':'TB'};
 function logoLabel(n){ return BLAB[n] || n.slice(0,2); }
@@ -1232,6 +1251,7 @@ function renderText(){
   document.getElementById('periodMeta').textContent = w.dates.length+' '+(STATE.lang==='zh'?'天 · '+w.rs+' 次可定位提及':'days · '+w.rs+' ranked mentions');
   [['vsTip','tip_vs_card'],['sovTip','tip_sov_card'],['avgTip','tip_avg_card'],['radarTip','tip_radar_card'],['mxTip','tip_mx_card'],['lineTip','tip_line_card'],['sentTip','tip_sent_card']].forEach(function(p){var el=document.getElementById(p[0]); if(el) el.setAttribute('data-tip',t(p[1]));});
   var sss=document.getElementById('sentSearch'); if(sss) sss.setAttribute('placeholder',t('sent_search'));
+  var sbT=document.getElementById('sbToggle'); if(sbT){ var col=document.querySelector('.wrap3')&&document.querySelector('.wrap3').classList.contains('sb-collapsed'); var stip=STATE.lang==='zh'?(col?'展开侧栏':'折叠侧栏'):(col?'Show sidebar':'Hide sidebar'); sbT.setAttribute('title',stip); sbT.setAttribute('data-tip',stip); }
   renderBanner();
 }
 
@@ -1343,22 +1363,20 @@ function renderRadar(){ var p=pal();
   var wrap=document.getElementById('radarWrap'); if(!wrap) return;
   function makeRadar(elId,color,name,vals,radius){ var el=document.getElementById(elId); if(!el)return; var ch=echarts.init(el); charts[elId]=ch;
     ch.setOption({animation:false,color:[color],
-      tooltip:{backgroundColor:p.tipBg,borderColor:cssvar('--tip-bd'),textStyle:{color:'#F5F2EA',fontSize:12},formatter:function(pr){var v=pr.value||[];var s='<b>'+pr.name+'</b><br/>';ax.forEach(function(a,i){s+=a.l+'：'+v[i]+(a.k==='position'?'':'%')+'<br/>';});return s;}},
-      radar:{indicator:ax.map(function(a){return {name:a.l,max:100};}),radius:(radius||'58%'),center:['50%','53%'],axisName:{color:p.axis,fontSize:(radius?11.5:10.5),fontWeight:600},splitNumber:4,splitLine:{lineStyle:{color:p.split}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:p.split}}},
+      tooltip:{backgroundColor:p.tipBg,borderColor:cssvar('--tip-bd'),textStyle:{color:'#F5F2EA',fontSize:12},formatter:function(pr){var v=pr.value||[];var s='<b>'+pr.name+'</b><br/>';ax.forEach(function(a,i){s+=(STATE.lang==='en'&&a.le?a.le:a.l)+(STATE.lang==='en'?': ':'：')+v[i]+(a.k==='position'?'':'%')+'<br/>';});return s;}},
+      radar:{indicator:ax.map(function(a){return {name:(STATE.lang==='en'&&a.le?a.le:a.l),max:100};}),radius:(radius||'58%'),center:['50%','53%'],axisName:{color:p.axis,fontSize:(radius?11.5:10.5),fontWeight:600},splitNumber:4,splitLine:{lineStyle:{color:p.split}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:p.split}}},
       series:[{type:'radar',symbolSize:radius?5:4,data:[{value:vals,name:name,lineStyle:{color:color,width:radius?2.5:2},itemStyle:{color:color},areaStyle:{color:color,opacity:.18}}]}]});
   }
   if(STATE.radarMode==='summary'){
-    var sv=aggFor(brand), c0=(brand==='gasstation'?'#E5A338':brandColor(brand));
-    var brandsAll=['gasstation','TronLink','JustLend','TokenPocket','TronGrid'];
-    var favg=ax.map(function(a,i){var s=0;brandsAll.forEach(function(bn){s+=aggFor(bn)[i];});return s/brandsAll.length;});
+    var sv=aggFor(brand), c0=(brand==='gasstation'?'#E5A338':brandColor(brand)); var enS=STATE.lang==='en';
     wrap.innerHTML='<div class="radar-summary">'+
       '<div class="rs-left"><div id="radar_0" class="rs-chart"></div>'+
         '<div class="rc-label rs-own"><span class="rc-tx"><i style="background:'+c0+'"></i>'+brand+'</span></div></div>'+
-      '<div class="radar-metrics"><div class="rm-h">五维综合表现</div>'+
-        '<div class="rm-sub">按 '+STATIC.topics.length+' 个监测问题加权汇总 · 竖线为赛道均值</div>'+
-        ax.map(function(a,i){var unit=(a.k==='position'?'':'%');var pct=Math.max(3,Math.min(100,sv[i]));var avg=Math.max(2,Math.min(100,favg[i]));
-          return '<div class="rm-row"><span class="rm-k">'+a.l+'</span>'+
-            '<span class="rm-bar"><i style="width:'+pct+'%;background:'+c0+'"></i><b class="rm-avg" style="left:'+avg+'%" title="赛道均值 '+favg[i].toFixed(1)+unit+'"></b></span>'+
+      '<div class="radar-metrics"><div class="rm-h">'+(enS?'Five-metric overview':'五维综合表现')+'</div>'+
+        '<div class="rm-sub">'+(enS?('Weighted across '+STATIC.topics.length+' monitored queries'):('按 '+STATIC.topics.length+' 个监测问题加权汇总'))+'</div>'+
+        ax.map(function(a,i){var unit=(a.k==='position'?'':'%');var pct=Math.max(3,Math.min(100,sv[i]));
+          return '<div class="rm-row"><span class="rm-k">'+(enS&&a.le?a.le:a.l)+'</span>'+
+            '<span class="rm-bar"><i style="width:'+pct+'%;background:'+c0+'"></i></span>'+
             '<span class="rm-v">'+sv[i]+unit+'</span></div>';}).join('')+
       '</div></div>';
     makeRadar('radar_0',c0,brand,sv,'62%');
@@ -1417,7 +1435,7 @@ function renderMatrix(){
 }
 function mxDetailHTML(m,tp){
   var ax=STATIC.radarAxes;
-  var metrics=tp?ax.map(function(a){var v=tp.v[a.k];return '<div class="mxm"><span class="mxm__l">'+a.l+'</span><span class="mxm__track"><i style="width:'+Math.min(100,v)+'%"></i></span><span class="mxm__v">'+v.toFixed(1)+(a.k==='position'?'':'%')+'</span></div>';}).join(''):'';
+  var metrics=tp?ax.map(function(a){var v=tp.v[a.k];return '<div class="mxm"><span class="mxm__l">'+(STATE.lang==='en'&&a.le?a.le:a.l)+'</span><span class="mxm__track"><i style="width:'+Math.min(100,v)+'%"></i></span><span class="mxm__v">'+v.toFixed(1)+(a.k==='position'?'':'%')+'</span></div>';}).join(''):'';
   var maxv=m.ranking.reduce(function(s,x){return Math.max(s,x.vis);},1);
   var rlist=m.ranking.map(function(b,i){var c=brandColor(b.brand);
     var bfill=b.own?'color-mix(in oklab,#E5A338 58%,var(--surface))':'color-mix(in oklab,'+c+' 10%,var(--surface))';
@@ -1484,12 +1502,13 @@ function sentDetailHTML(r,dc,zh){
 }
 function renderCites(){ var el=document.getElementById('cites'); if(!el) return; el.innerHTML=STATIC.citations.map(function(d){return '<div class="cite"><span class="dm">'+d.d+'</span><span class="ct">'+t('share')+'</span><span class="sh mono">'+d.s+'%</span></div>';}).join(''); }
 function renderProfiles(){ document.getElementById('profiles').innerHTML=STATIC.competitors.map(function(p){var c=brandColor(p.n);
-  return '<div class="prof'+(p.own?' own':'')+'"><div class="prof__h"><span class="lg" style="background:'+c+'">'+p.n.charAt(0).toUpperCase()+'</span><span class="nm">'+p.n+'</span><span class="rk">'+p.rk+'</span></div>'+
-    '<div class="prof__pos">'+p.pos+'</div>'+
-    '<div class="prof__sub">'+t('prof_str')+'</div><ul class="prof__list good">'+p.s.slice(0,3).map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>'+
-    (p.w&&p.w.length?'<div class="prof__sub">'+t('prof_wk')+'</div><ul class="prof__list bad">'+p.w.slice(0,2).map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>':'')+
-    '<div class="prof__sub">'+t('prof_prod')+'</div><div class="prof__tags">'+(p.pd||[]).slice(0,4).map(function(x){return '<span>'+x+'</span>';}).join('')+'</div>'+
-    '<div class="prof__metrics"><div>'+t('prof_men')+'<b>'+p.m+'</b></div>'+(p.ar?'<div>'+t('prof_ar')+'<b>'+p.ar+'</b></div>':'')+(p.pr?'<div style="flex:1">'+t('prof_price')+'<b style="font-size:12px;font-weight:600;color:var(--text-2)">'+p.pr+'</b></div>':'')+'</div></div>';
+  var e=(STATE.lang==='en'?(COMP_EN[p.n]||{}):{}); var rk=e.rk||p.rk, pos=e.pos||p.pos, ss=e.s||p.s, ww=e.w||p.w, pr=e.pr||p.pr, pd=e.pd||p.pd;
+  return '<div class="prof'+(p.own?' own':'')+'"><div class="prof__h"><span class="lg" style="background:'+c+'">'+p.n.charAt(0).toUpperCase()+'</span><span class="nm">'+p.n+'</span><span class="rk">'+rk+'</span></div>'+
+    '<div class="prof__pos">'+pos+'</div>'+
+    '<div class="prof__sub">'+t('prof_str')+'</div><ul class="prof__list good">'+ss.slice(0,3).map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>'+
+    (ww&&ww.length?'<div class="prof__sub">'+t('prof_wk')+'</div><ul class="prof__list bad">'+ww.slice(0,2).map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>':'')+
+    '<div class="prof__sub">'+t('prof_prod')+'</div><div class="prof__tags">'+(pd||[]).slice(0,4).map(function(x){return '<span>'+x+'</span>';}).join('')+'</div>'+
+    '<div class="prof__metrics"><div>'+t('prof_men')+'<b>'+p.m+'</b></div>'+(p.ar?'<div>'+t('prof_ar')+'<b>'+p.ar+'</b></div>':'')+(pr?'<div style="flex:1">'+t('prof_price')+'<b style="font-size:12px;font-weight:600;color:var(--text-2)">'+pr+'</b></div>':'')+'</div></div>';
 }).join(''); }
 function renderRec(){ var head='<thead><tr><th>'+t('rec_date')+'</th><th style="text-align:left">'+t('rec_group')+'</th><th>'+t('rec_eng')+'</th><th>'+t('rec_q')+'</th><th>'+t('rec_st')+'</th></tr></thead>';
   var stcls={done:'st-done',failed:'st-failed',pending:'st-pending'};
@@ -1598,7 +1617,7 @@ function rankListHTML(arr, valHTML, barOf, invert){
   return h;
 }
 function renderCharts(){ syncRC(); renderKpis(); renderVisScore(); renderLine(); renderSOV(); renderAvgRank(); renderRadar(); }
-function renderAll(){ renderText(); renderMatrix(); renderSent(); renderCites(); renderProfiles(); renderRec(); renderCharts(); }
+function renderAll(){ renderText(); renderMatrix(); renderSent(); renderCites(); renderProfiles(); renderRec(); renderCharts(); if(document.getElementById('sideNav')&&document.getElementById('sideNav').children.length) buildSideNav(); }
 var _spyItems=[];
 function buildSideNav(){
   var nav=document.getElementById('sideNav'); if(!nav) return;
